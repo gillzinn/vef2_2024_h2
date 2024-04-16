@@ -36,9 +36,9 @@ export default function Home() {
     <main className={styles.main}>
       <div>
         <div>
-          <h2>
-            Dagskrá Menningarnætur
-          </h2>
+          <h1 className = {styles.title}>
+            Menningarnótt!
+          </h1>
         </div>
         <div>
 

@@ -15,9 +15,9 @@ export default function Events() {
     <main className={styles.main}>
       <div>
         <div>
-          <h2>
+          <h1 className = {styles.title}>
             Dagskrá Menningarnætur
-          </h2>
+          </h1>
         </div>
         <div className={styles.grid}>
           {events === null ? (
@@ -29,6 +29,8 @@ export default function Events() {
                   <h2>{title}</h2>
                   <p>{place}</p>
                   <p>{date}</p>
+                  console.log(image)
+                  <img src={image} alt="" />
                 </a>
               ))
             ))
