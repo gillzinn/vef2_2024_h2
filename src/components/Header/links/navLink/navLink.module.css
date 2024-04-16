@@ -1,9 +1,22 @@
 .active{
     background-color: grey;
     border-radius: 4px;
+    
 }
 
-.li{
-    margin-top: 0.5rem;
+
+.container{
+    min-width: 110px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.3rem;
 }
 
+
+.container:hover{
+    background-color: grey;
+    transition: 0.5s;
+    border-radius: 4px;
+    cursor: pointer;
+}
