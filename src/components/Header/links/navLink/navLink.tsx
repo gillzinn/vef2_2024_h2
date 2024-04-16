@@ -15,8 +15,15 @@ interface NavLinkProps {
 const NavLink = ({ item }: NavLinkProps) => {
     const pathName = usePathname();
 
+    
+    const isActive = item.path === '/'
+        ? pathName === item.path 
+        : pathName.startsWith(item.path) && pathName !== '/';
+
     return (
-        <Link href={item.path} key={item.title} className={`${styles.container} ${pathName === item.path && styles.active}`}>{item.title}</Link>
+        <Link href={item.path} key={item.title}>
+            <div className={`${styles.container} ${isActive ? styles.active : ''}`}>{item.title}</div>
+        </Link>
     );
 }
 

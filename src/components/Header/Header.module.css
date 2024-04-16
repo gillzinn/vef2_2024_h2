@@ -11,7 +11,7 @@
 
 .header .headerLogo {
     font-family: 'Playfair Display', sans-serif;
-    font-size: 3rem; /* Increased size for better visibility */
+    font-size: 1.5rem; /* Increased size for better visibility */
     font-weight: 700; /* Bold font weight to make it pop */
     color: #FFFFFF; /* White color for high contrast on dark backgrounds */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding shadow for depth */
