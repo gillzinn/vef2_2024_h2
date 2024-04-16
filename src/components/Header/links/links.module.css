@@ -1,0 +1,19 @@
+.logout{
+    font-size: 1.3rem;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    margin-right: 1rem;
+    background-color: rgba(0,0,0, 0.7);
+    border: none;
+    text-align: top;
+
+}
+
+
+.logout:hover{
+    background-color: grey;
+    transition: 0.5s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
