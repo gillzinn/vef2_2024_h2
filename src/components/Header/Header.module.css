@@ -16,10 +16,21 @@
 }
 
 
-.header .headerLogo{
-    font-size: 2rem	;
-    margin: 0rem 1.5rem;
+.header .headerLogo {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 3rem; /* Increased size for better visibility */
+    font-weight: 700; /* Bold font weight to make it pop */
+    color: #FFFFFF; /* White color for high contrast on dark backgrounds */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding shadow for depth */
+    transition: transform 0.3s; /* Smooth transition for hover effects */
+    margin-left: 1.5rem;
 }
+
+.header .headerLogo:hover {
+    transform: scale(1.1); /* Slightly enlarging the logo on hover */
+    color: #E0E0E0; /* Light grey color on hover for a soft effect */
+}
+
 
 .ul{
     list-style-type: none;

@@ -7,6 +7,32 @@
   min-height: 100vh;
 }
 
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white; /* Subtle gray for a professional look */
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; /* Smooth transitions for multiple properties */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem; /* Slightly smaller font size on smaller screens */
+  }
+}
+
+/* Hover effect */
+.title:hover {
+  color: #007BFF; /* Bright blue for high visibility */
+  transform: scale(1.05) rotate(3deg); /* Slightly larger and rotated */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+
 .description {
   display: inherit;
   justify-content: inherit;
