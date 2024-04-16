@@ -1,4 +1,5 @@
 
+import eventStyles from './EventDetails.module.css';
 import styles from './../../page.module.css';
 import { fetchEvents } from '@/utils/fetch';
 
@@ -13,33 +14,26 @@ import { ImageProps } from '@/utils/types';
 
 
 
-export default function Events({params: {id}, } : {params: {id: string}}) {
+export default function Events({ params: { id } }: { params: { id: string } }) {
+  const events = fetchEvents(`https://vef2-2024-h1-iuos.onrender.com/events/${id}`);
 
-const events = fetchEvents(`https://vef2-2024-h1-iuos.onrender.com/events/${id}`);
   return (
-    <main className={styles.main}>
+    <main className={eventStyles.eventMain}>
       <div>
-        <div>
-          <h2>
-            Dagskrá Menningarnætur
-          </h2>
-        </div>
-        <div className={styles.grid}>
-          {events === null ? (
-            <div>Loading</div>
-          ) : (
-            events.then(({id, title, place, date, image}: {id: string, title: string, place: string ,date: string, image: string}) => (
-                <a key={id} className={styles.card} href={`/events/${id}`}>
-                  <h2>{title}</h2>
-                  <p>{place}</p>
-                  <p>{date}</p>
-                  
-                </a>
-              ))
-            )
-          }
-            
-      </div>
+        <h2 className={styles.title}>
+          Dagskrá Menningarnætur
+        </h2>
+        {events === null ? (
+          <div>Loading...</div>
+        ) : (
+          events.then(({ id, title, place, date, image }: { id: string, title: string, place: string, date: string, image: string }) => (
+            <div key={id} className={eventStyles.eventCard}>
+              <h2 className={eventStyles.eventTitle}>{title}</h2>
+              <p className={eventStyles.eventInfo}>{place}</p>
+              <p className={eventStyles.eventInfo}>{date}</p>
+            </div>
+          ))
+        )}
       </div>
     </main>
   );

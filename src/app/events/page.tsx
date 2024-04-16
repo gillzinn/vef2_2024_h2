@@ -29,8 +29,6 @@ export default function Events() {
                   <h2>{title}</h2>
                   <p>{place}</p>
                   <p>{date}</p>
-                  console.log(image)
-                  <img src={image} alt="" />
                 </a>
               ))
             ))
