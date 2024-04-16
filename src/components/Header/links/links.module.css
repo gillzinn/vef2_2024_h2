@@ -1,11 +1,31 @@
 .logout{
+    min-width: 100px;
+
     font-size: 1.3rem;
-    padding: 8px 10px;
+    padding: 10px;
     text-transform: uppercase;
     margin-right: 1rem;
     background-color: rgba(0,0,0, 0.7);
     border: none;
-    text-align: top;
+    border-radius: 4px;
+    text-align: center;
+
+}
+
+.logoutSmall{
+    width: 110px;
+    font-size: 1.3rem;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: rgba(0,0,0, 0.7);
+    text-align: center;
+    border: none;
+}
+.logoutSmall:hover{
+    background-color: grey;
+    transition: 0.5s;
+    border-radius: 4px;
+    cursor: pointer;
 
 }
 
@@ -17,3 +37,75 @@
     cursor: pointer;
 }
 
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menuButton,
+.mobileLinks{
+    display: none;
+    
+
+}
+
+
+.links{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.links a{
+    font-size: 1.3rem;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    margin-right: 1rem;
+    text-align: top;
+}
+
+.links a:hover{
+    background-color: grey;
+    transition: 0.5s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+
+
+@media(max-width: 768px){
+    .links{
+        display: none;
+    }
+
+    .menuButton{
+        display: block;
+        cursor: pointer;
+        margin-right: 1rem;
+        
+
+    }
+
+
+    
+    .mobileLinks{
+        position: absolute;
+        top: 14vh;
+        right: 0;
+        width: 50%;    
+        height: calc(100vh - 14vh);
+        background-color: rgba(0,0,0, 0.7);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-transform: uppercase;
+        
+    
+    }
+}
