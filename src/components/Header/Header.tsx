@@ -19,7 +19,7 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.headerLogo}>
-                Events
+                Menningarnótt 
             </div>
             <a  onClick={onClick} className={styles.hamburger} id="hamburger">
                 <span className={styles.bar}></span>
