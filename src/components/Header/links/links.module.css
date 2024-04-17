@@ -66,13 +66,6 @@
     text-align: top;
 }
 
-.links a:hover{
-    background-color: grey;
-    transition: 0.5s;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 
 
 
