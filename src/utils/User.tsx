@@ -110,6 +110,8 @@ export default class User extends Component<UserProps> {
 
   addRegistration = async (eventTitle: string) => {
     const body = { eventTitle: eventTitle, username: user };
+    console.log(token);
+    console.log(user);
     const register = await fetch(
       `https://vef2-2024-h1-iuos.onrender.com/registrations`,
       {

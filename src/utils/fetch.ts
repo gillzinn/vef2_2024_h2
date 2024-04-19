@@ -35,7 +35,6 @@ export const fetchRegistrations = cache(async (url: string, user: string) => {
     throw new Error("Unable to fetch registrations");
   }
   const regs = await registrations.json();
-  console.log(regs);
   for (let reg of regs) {
     if (reg.username === user) {
       currRegistrations.push([reg.eventId, reg.id]);
@@ -44,9 +43,6 @@ export const fetchRegistrations = cache(async (url: string, user: string) => {
   console.log(currRegistrations);
   return currRegistrations;
 });
-    return events.json();
-});
-
 
 export const fetchUsers = cache(async (url: string) => {
     const users = await fetch(url, {

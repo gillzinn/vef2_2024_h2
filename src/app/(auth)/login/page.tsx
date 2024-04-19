@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 //import './login.css';
 import { Context } from "../../../utils/User";
-import styles from './login.module.css';
+import styles from "./login.module.css";
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -28,13 +28,17 @@ export default function Login() {
   return (
     <Context.Consumer>
       {({ message, loginUser, fetching, authenticated }) => {
-        if (authenticated) { redirect('/'); }
+        if (authenticated) {
+          redirect("/");
+        }
 
         if (fetching) {
           return (
-            <p>
-              Skrái inn <em>{name}</em>...
-            </p>
+            <div className={styles.loading}>
+              <h3>
+                Skrái inn <em>{name}</em>...
+              </h3>
+            </div>
           );
         }
 
@@ -43,10 +47,15 @@ export default function Login() {
             <div className="login">
               {message && <p>{message}</p>}
 
-              <form className={styles.loginForm} onSubmit={handleSubmit(loginUser)}>
-              <h3>Login</h3>
+              <form
+                className={styles.loginForm}
+                onSubmit={handleSubmit(loginUser)}
+              >
+                <h3>Login</h3>
                 <div>
-                  <label className={styles.label} htmlFor="username">Notendanafn:</label>
+                  <label className={styles.label} htmlFor="username">
+                    Notendanafn:
+                  </label>
                   <input
                     autoComplete="off"
                     id="username"
@@ -59,7 +68,9 @@ export default function Login() {
                 </div>
 
                 <div>
-                  <label className={styles.label} htmlFor="password">Lykilorð:</label>
+                  <label className={styles.label} htmlFor="password">
+                    Lykilorð:
+                  </label>
                   <input
                     autoComplete="off"
                     id="password"
@@ -71,7 +82,9 @@ export default function Login() {
                   />
                 </div>
 
-                <button className={styles.button} disabled={fetching}>Innskrá</button>
+                <button className={styles.button} disabled={fetching}>
+                  Innskrá
+                </button>
               </form>
             </div>
           </React.Fragment>
