@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Event } from '@/utils/types';
 import styles from './../page.module.css';
 import { fetchEvents } from '@/utils/fetch';
-
+import Link from 'next/link';
 
 
 
@@ -23,7 +23,7 @@ const Events = async () =>{
             <div>Loading</div>
           ) : (
             events.map(({id, title, place, date, imageURL}: {id: string, title: string, place: string ,date: string, imageURL: string}) => (
-                <a key={id} className={styles.card} href={`/events/${id}`}>
+                <Link key={id} className={styles.card} href={`/events/${id}`}>
                   <h2>{title}</h2>
                   <p>{place}</p>
                   <p>{date}</p>
@@ -33,7 +33,7 @@ const Events = async () =>{
                     width={90}
                     alt="Mynd fyrir viðburð"
                   />
-                </a>
+                </Link>
             ))
           )}
       </div>

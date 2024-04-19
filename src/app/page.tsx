@@ -40,9 +40,6 @@ export default function Home() {
             Menningarnótt!
           </h1>
         </div>
-        <div>
-
-        </div>
       </div>
       <div className={styles.grid}>
         {cards.map(card => (

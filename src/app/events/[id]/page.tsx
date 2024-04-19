@@ -1,7 +1,7 @@
 
 import styles from './../../page.module.css';
 import { fetchEvent } from '@/utils/fetch';
-
+import Link from 'next/link';
 import Image from 'next/image';
 
 import cloudinary from '@/utils/cloudinary';
@@ -27,11 +27,11 @@ const Events = async ({params: {id}, } : {params: {id: string}}) => {
             {events === null ? (
               <div>Loading</div>
             ) : (
-                  <a key={id} className={styles.card} href={`/events/${id}`}>
+                  <Link key={id} className={styles.card} href={`/events/${id}`}>
                     <h2>{events.title}</h2>
                     <p>{events.place}</p>
                     <p>{events.date}</p>
-                  </a>
+                  </Link>
               )
             }
               
