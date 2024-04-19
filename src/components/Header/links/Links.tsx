@@ -19,7 +19,7 @@ export default function Links() {
 
     const {
         authenticated,
-        adminToken,
+        admin,
         logoutUser,
     } = UserState();
     
@@ -30,7 +30,7 @@ export default function Links() {
                         <NavLink item={link} key={link.title}/>
                 ))}{authenticated ? (
                     <>
-                        {adminToken && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+                        {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
                         <div >
                             <button onClick={() => logoutUser()} className={styles.logout}>Logout</button>
                         </div>
@@ -46,7 +46,7 @@ export default function Links() {
                         <NavLink item={link} key={link.title}/>
                 ))}{authenticated ? (
                     <>
-                        {adminToken && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+                        {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
                         <div >
                             <button onClick={() => logoutUser()} className={styles.logoutSmall}>Logout</button>
                         </div>
