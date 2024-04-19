@@ -7,7 +7,7 @@ import { Context } from '../../../utils/User';
 
 const links = [
     { title: 'Home', path: '/' },
-    { title: 'Events', path: '/events' }
+    { title: 'Events', path: '/events' },
 ];
 
 export default function Links() {
@@ -28,9 +28,11 @@ export default function Links() {
             <div className={styles.links}>
                 {links.map((link) => (
                         <NavLink item={link} key={link.title}/>
-                ))}{authenticated ? (
+                ))}
+                {authenticated ? (
                     <>
                         {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+                        <NavLink item={{ title: 'Þínir Events', path: '/userevents' }} />
                         <div >
                             <button onClick={() => logoutUser()} className={styles.logout}>Logout</button>
                         </div>
@@ -40,23 +42,24 @@ export default function Links() {
                 )}
             </div>
             <button className={styles.menuButton} onClick={() => setOpen((prev) => !prev)}>Menu</button>
-            {
-                open && <div className={styles.mobileLinks}>
-                   {links.map((link) => (
+            {open && (
+                <div className={styles.mobileLinks}>
+                    {links.map((link) => (
                         <NavLink item={link} key={link.title}/>
-                ))}{authenticated ? (
-                    <>
-                        {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
-                        <div >
-                            <button onClick={() => logoutUser()} className={styles.logoutSmall}>Logout</button>
-                        </div>
-                    </>
-                ) : (
-                    <NavLink item={{ title: 'Login', path: '/login' }} />
-                )}
+                    ))}
+                    {authenticated ? (
+                        <>
+                            {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+                            <NavLink item={{ title: 'Þínir Events', path: '/userevents' }} />
+                            <div >
+                                <button onClick={() => logoutUser()} className={styles.logoutSmall}>Logout</button>
+                            </div>
+                        </>
+                    ) : (
+                        <NavLink item={{ title: 'Login', path: '/login' }} />
+                    )}
                 </div>
-            }
-
+            )}
         </div>
     );
 }
