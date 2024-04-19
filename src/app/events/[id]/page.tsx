@@ -1,8 +1,9 @@
 
-import styles from './../../page.module.css';
+
 import { fetchEvent } from '@/utils/fetch';
 import Link from 'next/link';
 import Image from 'next/image';
+import styles from './../../page.module.css';
 
 import cloudinary from '@/utils/cloudinary';
 import { ImageProps } from '@/utils/types';
@@ -16,7 +17,7 @@ import { ImageProps } from '@/utils/types';
 const Events = async ({params: {id}, } : {params: {id: string}}) => {
   const events = await fetchEvent(`https://vef2-2024-h1-iuos.onrender.com/events/${id}`);
     return (
-      <main className={styles.main}>
+      <main >
         <div>
           <div>
             <h2>
@@ -28,6 +29,12 @@ const Events = async ({params: {id}, } : {params: {id: string}}) => {
               <div>Loading</div>
             ) : (
                   <Link key={id} className={styles.card} href={`/events/${id}`}>
+                    <Image 
+                    src={events.imageURL}
+                    height={300}
+                    width={300}
+                    alt="Mynd fyrir viðburð"
+                  />
                     <h2>{events.title}</h2>
                     <p>{events.place}</p>
                     <p>{events.date}</p>

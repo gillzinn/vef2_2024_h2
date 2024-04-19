@@ -24,15 +24,15 @@ const Events = async () =>{
           ) : (
             events.map(({id, title, place, date, imageURL}: {id: string, title: string, place: string ,date: string, imageURL: string}) => (
                 <Link key={id} className={styles.card} href={`/events/${id}`}>
+                  <Image 
+                    src={imageURL}
+                    height={300}
+                    width={300}
+                    alt="Mynd fyrir viðburð"
+                  />
                   <h2>{title}</h2>
                   <p>{place}</p>
                   <p>{date}</p>
-                  <Image 
-                    src={imageURL}
-                    height={90}
-                    width={90}
-                    alt="Mynd fyrir viðburð"
-                  />
                 </Link>
             ))
           )}
