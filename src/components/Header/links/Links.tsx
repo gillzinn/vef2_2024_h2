@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import NavLink from "./navLink/navLink";
 import styles from "./links.module.css";
+import { Context } from '../../../utils/User';
 
 const links = [
     { title: 'Home', path: '/' },
@@ -10,27 +11,29 @@ const links = [
     { title: 'About', path: '/about' },
 ];
 
-const Links = () => {
+export default function Links() {
     const [open, setOpen] = useState(false);
 
+    const UserState = () => {
+        return useContext(Context);
+    };
+
+    const {
+        authenticated,
+        adminToken,
+        logoutUser,
+    } = UserState();
     
-
-    const session = true;
-    const isAdmin = true;
-    
-
-
-
     return (
         <div className={styles.container}>
             <div className={styles.links}>
                 {links.map((link) => (
                         <NavLink item={link} key={link.title}/>
-                ))}{session ? (
+                ))}{authenticated ? (
                     <>
-                        {isAdmin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+                        {adminToken && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
                         <div >
-                            <button className={styles.logout}>Logout</button>
+                            <button onClick={() => logoutUser()} className={styles.logout}>Logout</button>
                         </div>
                     </>
                 ) : (
@@ -42,11 +45,11 @@ const Links = () => {
                 open && <div className={styles.mobileLinks}>
                    {links.map((link) => (
                         <NavLink item={link} key={link.title}/>
-                ))}{session ? (
+                ))}{authenticated ? (
                     <>
-                        {isAdmin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+                        {adminToken && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
                         <div >
-                            <button className={styles.logoutSmall}>Logout</button>
+                            <button onClick={() => logoutUser()} className={styles.logoutSmall}>Logout</button>
                         </div>
                     </>
                 ) : (
@@ -58,5 +61,3 @@ const Links = () => {
         </div>
     );
 }
-
-export default Links;
