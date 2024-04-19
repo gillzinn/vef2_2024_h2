@@ -91,7 +91,6 @@ const Events = ({ params: { id } }: { params: { id: string } }) => {
   if (loading || fetchingRegs) {
     return <div>Loading...</div>;
   }
-
   return (
     <main className={styles.main}>
       <div>

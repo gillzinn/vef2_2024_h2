@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import { redirect } from 'next/navigation';
-import './login.css';
+//import './login.css';
 import { Context } from "../../../utils/User";
+import styles from './login.module.css';
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -42,9 +43,10 @@ export default function Login() {
             <div className="login">
               {message && <p>{message}</p>}
 
-              <form onSubmit={handleSubmit(loginUser)}>
+              <form className={styles.loginForm} onSubmit={handleSubmit(loginUser)}>
+              <h3>Login</h3>
                 <div>
-                  <label htmlFor="username">Notendanafn:</label>
+                  <label className={styles.label} htmlFor="username">Notendanafn:</label>
                   <input
                     autoComplete="off"
                     id="username"
@@ -52,11 +54,12 @@ export default function Login() {
                     name="username"
                     value={name}
                     onChange={handleInputChangeName}
+                    className={styles.input}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="password">Lykilorð:</label>
+                  <label className={styles.label} htmlFor="password">Lykilorð:</label>
                   <input
                     autoComplete="off"
                     id="password"
@@ -64,10 +67,11 @@ export default function Login() {
                     name="password"
                     value={pass}
                     onChange={handleInputChangePass}
+                    className={styles.input}
                   />
                 </div>
 
-                <button disabled={fetching}>Innskrá</button>
+                <button className={styles.button} disabled={fetching}>Innskrá</button>
               </form>
             </div>
           </React.Fragment>

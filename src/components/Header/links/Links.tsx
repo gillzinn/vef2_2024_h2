@@ -7,8 +7,7 @@ import { Context } from '../../../utils/User';
 
 const links = [
     { title: 'Home', path: '/' },
-    { title: 'Events', path: '/events' },
-    { title: 'About', path: '/about' },
+    { title: 'Events', path: '/events' }
 ];
 
 export default function Links() {
