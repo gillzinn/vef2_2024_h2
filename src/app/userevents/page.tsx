@@ -7,11 +7,16 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function UserEvents() {
-  const user = localStorage.getItem("user");
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    const storageUser = localStorage.getItem("user");
+    if (storageUser) {
+      setUser(storageUser);
+    }
+  }, []);
   const URL = `https://vef2-2024-h1-iuos.onrender.com/registrations`;
   const [fetchingRegs, setFetchingRegs] = useState(false);
   const [regEvents, setRegEvents] = useState<any>([]);
-  console.log(user);
   useEffect(() => {
     setFetchingRegs(true);
     const fetchData = async () => {
@@ -26,7 +31,6 @@ export default function UserEvents() {
               const event = await fetchEvent(
                 `https://vef2-2024-h1-iuos.onrender.com/events/${reg[0]}`
               );
-              console.log(event);
               events.push(event);
             }
             setRegEvents(events);
@@ -41,7 +45,6 @@ export default function UserEvents() {
     };
     fetchData();
   }, [user, URL]);
-  console.log(regEvents);
   return (
     <main className={styles.main}>
       {fetchingRegs ? (
