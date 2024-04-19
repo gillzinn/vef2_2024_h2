@@ -40,7 +40,6 @@ export const fetchRegistrations = cache(async (url: string, user: string) => {
       currRegistrations.push([reg.eventId, reg.id]);
     }
   }
-  console.log(currRegistrations);
   return currRegistrations;
 });
 
@@ -51,7 +50,6 @@ export const fetchUsers = cache(async (url: string) => {
             Authorization: `Bearer ${localStorage}`,
         },
     });
-    console.log(localStorage);
     if(!users.ok){
         throw new Error("Unable to fetch users");
     }
