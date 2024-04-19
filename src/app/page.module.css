@@ -264,3 +264,14 @@
   background-color: grey;
   border-radius: 4px;
 }
+
+.mainEvent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+  width: 100%;
+}
+
